@@ -3,7 +3,7 @@
 export interface Todo {
 	id: string;
 	description: string;
-	completed: string;
+	done: boolean;
 }
 
 export interface TodoState {
