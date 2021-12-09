@@ -1,3 +1,4 @@
+import { useTodos } from '../hooks/useTodos';
 import { Todo } from '../interfaces/interfaces';
 
 interface TodoItemsProps {
@@ -5,13 +6,23 @@ interface TodoItemsProps {
 }
 
 export const TodoItems = ({ todo }: TodoItemsProps) => {
+	const { toggleTodo } = useTodos();
+
 	const handleDbClick = () => {
-		console.log('handleDbClick', todo.description);
+		toggleTodo(todo.id);
 	};
 
 	return (
 		<>
-			<li onDoubleClick={handleDbClick}>{todo.description}</li>
+			<li
+				style={{
+					cursor: 'pointer',
+					textDecoration: todo.done ? 'line-through' : '',
+				}}
+				onDoubleClick={handleDbClick}
+			>
+				{todo.description}
+			</li>
 		</>
 	);
 };
