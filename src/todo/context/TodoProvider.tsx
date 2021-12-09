@@ -10,12 +10,12 @@ const INITIAL_STATE: TodoState = {
 		{
 			id: '1',
 			description: 'hacer tareas de casa',
-			completed: 'false',
+			done: false,
 		},
 		{
 			id: '2',
 			description: 'limpiar la caja de los gatos',
-			completed: 'false',
+			done: false,
 		},
 	],
 	completed: 0,
