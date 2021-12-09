@@ -17,6 +17,17 @@ export const todoReducer = (
 				todos: [...state.todos, action.payload],
 			};
 
+		case 'toggleTodo':
+			return {
+				...state,
+				todos: state.todos.map(({ ...todo }) => {
+					if (todo.id === action.payload.id) {
+						todo.done = !todo.done;
+					}
+					return todo;
+				}),
+			};
+
 		default:
 			return state;
 	}
